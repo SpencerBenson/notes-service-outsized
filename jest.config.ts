@@ -1,6 +1,5 @@
-import type {Config} from 'jest';
 
-const config:Config = {
+const config = {
     preset: 'ts-jest',
     testEnvironment: 'node',
     coverageDirectory: 'coverage',
