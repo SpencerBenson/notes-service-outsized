@@ -56,7 +56,7 @@ To run this API, you need the following:
 
 1. Install MongoDB locally on your machine. You can download it from [MongoDB Official Website](https://www.mongodb.com/try/download/community).
 2. Start the MongoDB server.
-3. Create a `.env` file and add the following string (Update the last part to match your database name)
+3. Create a `.env` file on the root folder and add the following string (Update the last part to match your database name)
     ```bash
     mongoDb_URL="mongodb://localhost:27017/outsized_notes_service_db"
 
