@@ -87,6 +87,7 @@ This will execute test cases using mock data and generate a test coverage report
 - Create a new note: `POST /api/notes`
 - Get all notes: `GET /api/notes`
 - Get a specific note by ID: `GET /api/notes/:id`
+- Get notes by tags: `/api/notes/tags/:tags` //Comma seperated e.g. /api/notes/tags/tag1,tag2
 - Update a note by ID: `PUT /api/notes/:id`
 - Delete a note by ID: `DELETE /api/notes/:id`
 
