@@ -67,7 +67,8 @@ To run this API, you need the following:
 ### Run the API:
 Use the following command
 
-       npm start
+        npx tsc 
+        npm start
        
 The server will start at http://localhost:3000. You can test the API using tools like Postman or cURL.
 
