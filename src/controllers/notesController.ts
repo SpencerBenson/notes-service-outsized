@@ -20,19 +20,29 @@ const createNote = async (req: Request, res: Response) => {
 
 const getNotesByTags = async (req: Request, res: Response) => {
   try {
-    const { tags } = req.query;
+    const { tags } = req.params; 
 
-    let query: any = {};
-    if (tags) {
-      query = { tags: { $in: [tags] } };
+    if (!tags) {
+      return res.status(400).json({ error: 'Tags parameter is required' });
     }
 
+    const tagsArray = tags.split(','); 
+    const query = { tags: { $in: tagsArray } };
+
     const notes = await Note.find(query);
+
+    if (notes.length === 0) {
+      return res.status(404).json({ message: 'No notes found for the specified tags' });
+    }
+
     res.status(200).json(notes);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+
+
 const getAllNotes = async (req: Request, res: Response) => {
   try {
    
