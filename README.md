@@ -7,6 +7,8 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#configuration)
+  - [Local MongoDB Installation](#local-mongodb-installation)
+  - [Online MongoDB Atlas](#online-mongodb-atlas)
 - [Usage](#usage)
 - [Testing](#testing)
 - [API Endpoints](#api-endpoints)
@@ -42,101 +44,65 @@ To run this API, you need the following:
    ```bash
    git clone https://github.com/your-username/notes-service-api.git
    cd notes-service-api
-   ```
-Install dependencies:
+   
+2. Install dependencies:
 
    ```bash
-   npm install
-   ```
+    npm install
+
 ## Configuration
-Update the MongoDB connection string in src/db/config.ts to point to your MongoDB instance:
-   ```bash
-    // MongoDB Connection
-    const dbConnection  = mongoose.connect(process.env.mongoDb_URL as string, {} as mongoose.ConnectOptions);
 
- ```
+### Local MongoDB Installation
+
+1. Install MongoDB locally on your machine. You can download it from [MongoDB Official Website](https://www.mongodb.com/try/download/community).
+2. Start the MongoDB server.
+3. Create a `.env` file and add the following string (Update the last part to match your database name)
+    ```bash
+    mongoDb_URL="mongodb://localhost:27017/outsized_notes_service_db"
+
+4. Save the changes.
+
 ## Usage
-Run the API:
-   ```bash
-      npm start
-```
+
+### Run the API:
+Use the following command
+
+       npm start
+       
 The server will start at http://localhost:3000. You can test the API using tools like Postman or cURL.
 
-Create a new cluster:
-
-Click on the "Build a Cluster" button.
-Choose a Cloud Provider, Region, and additional settings as needed.
-Click "Create Cluster."
-Configure database access:
-
-In the left sidebar, go to "Database Access" under the "Security" section.
-Click on the "ADD NEW DATABASE USER" button.
-Create a new user with a username and password. Note down these credentials.
-Allowlist your IP address:
-
-In the left sidebar, go to "Network Access" under the "Security" section.
-Click on the "ADD IP ADDRESS" button.
-Add your IP address to the allowlist.
-Get your connection string:
-
-In the left sidebar, click on "Clusters" and then on your cluster.
-Click the "CONNECT" button.
-Choose "Connect Your Application."
-Copy the connection string provided.
-Update the MongoDB connection string in src/app.ts:
-
-Open src/app.ts in your code editor.
-Replace the placeholder connection string with the one you copied.
-typescript
-Copy code
-mongoose.connect('your-copied-connection-string', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-});
-Save the changes.
-
-Environment Variables
-Optionally, you can use environment variables to securely store sensitive information like database credentials. Create a .env file in the root of your project and add the following:
-
-env
-Copy code
-MONGODB_URI=your-copied-connection-string
-Remember to add .env to your .gitignore file to avoid exposing sensitive information.
-
-Usage
-Run the API:
-
-bash
-Copy code
-npm start
-The server will start at http://localhost:3000. You can test the API using tools like Postman or cURL.
-
-Testing
+## Testing
 Run tests with:
 
-bash
-Copy code
-npm test
+    ```bash
+       npm test
+
 This will execute test cases using mock data and generate a test coverage report.
 
-API Endpoints
-Create a new note: POST /api/notes
-Get all notes: GET /api/notes
-Get a specific note by ID: GET /api/notes/:id
-Update a note by ID: PUT /api/notes/:id
-Delete a note by ID: DELETE /api/notes/:id
-Data Structure
+## API Endpoints
+
+- Create a new note: `POST /api/notes`
+- Get all notes: `GET /api/notes`
+- Get a specific note by ID: `GET /api/notes/:id`
+- Update a note by ID: `PUT /api/notes/:id`
+- Delete a note by ID: `DELETE /api/notes/:id`
+
+## Data Structure
+
 A note has the following properties:
 
-id
-title
-content
-createdAt
-updatedAt
-tags (optional)
-Contributing
+- id
+- title
+- content
+- createdAt
+- updatedAt
+- tags (optional)
+
+## Contributing
+
 Feel free to contribute to the development of this API. Follow the standard GitHub Fork and Pull Request workflow.
 
-License
+## License
+
 This project is licensed under the MIT License.
+       

@@ -8,8 +8,7 @@
   },
   "scripts": {
     "start": "node dist/app.js",
-    "test": "jest",
-    "coverage": "nyc jest"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

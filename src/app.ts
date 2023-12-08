@@ -23,8 +23,9 @@ app.use(errorHandlerMiddleware);
 
 // Server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+export const server = app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
 
 export default app;

@@ -4,14 +4,19 @@ import app from '../src/app';
 import Note from '../src/models/Note';
 import 'dotenv/config';
 import dbConnection from '../src/db/config'
-
+import {server} from '../src/app';
 
 
 
 beforeAll(async () => {
 
- // MongoDB Connection
-  dbConnection;
+  try {
+    // MongoDB Connection
+    await dbConnection;
+    
+  } catch (error) {
+    console.error('Error setting up the database:', error);
+  }
 
 });
 
@@ -20,9 +25,15 @@ afterEach(async () => {
 });
 
 afterAll(async () => {
-  await mongoose.disconnect();
-  mongoose.connection.close()
+  try {
+    await mongoose.disconnect();
+    server.close();
+    mongoose.connection.close();
+  } catch (error) {
+    console.error('Error disconnecting from the database:', error);
+  }
 });
+
 
 describe('Notes API', () => {
   test('should create a new note', async () => {
