@@ -2,11 +2,16 @@ import request from 'supertest';
 import mongoose from 'mongoose';
 import app from '../src/app';
 import Note from '../src/models/Note';
+import 'dotenv/config';
+import dbConnection from '../src/db/config'
+
+
+
 
 beforeAll(async () => {
 
-  //DB Connection
-  await mongoose.connect('mongodb://localhost:27017/outsized_notes_service_db', {} as mongoose.ConnectOptions);
+ // MongoDB Connection
+  dbConnection;
 
 });
 
@@ -16,6 +21,7 @@ afterEach(async () => {
 
 afterAll(async () => {
   await mongoose.disconnect();
+  mongoose.connection.close()
 });
 
 describe('Notes API', () => {

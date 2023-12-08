@@ -1,12 +1,13 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import loggerMiddleware from './middleware/loggerMiddleware';
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware';
 import notesRoutes from './routes/notesRoutes';
+import dbConnection from './db/config'
+
 
 // MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/outsized_notes_service_db', {} as mongoose.ConnectOptions);
+dbConnection;
 
 const app = express();
 
