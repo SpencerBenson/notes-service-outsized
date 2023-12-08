@@ -39,11 +39,11 @@ To run this API, you need the following:
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository :
 
    ```bash
-   git clone https://github.com/your-username/notes-service-api.git
-   cd notes-service-api
+   git clone git@github.com:SpencerBenson/notes-service-outsized.git
+   cd notes-service-outsized
    
 2. Install dependencies:
 
